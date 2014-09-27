@@ -42,7 +42,6 @@
 - (IBAction)quoteButtonTapped:(id)sender {
     //1 - Get number of rows in array
     int array_tot = [self.myQuotes count];
-    
     //2 - Get random index
     int index = (arc4random() % array_tot);
     
