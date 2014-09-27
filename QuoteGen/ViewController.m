@@ -83,7 +83,21 @@
             //if source isn't empty (there is a source listed) change the text to include it
             if (![source length] == 0)
                 quote = [NSString stringWithFormat:@"%@\n\n(%@)", quote, source];
-            self.quoteText.text = [NSString stringWithFormat:@"Movie Quote:\n\n%@", quote];
+        
+            
+            //determine if the movie quote is from a classic or modern source
+            if ([selectedCategory isEqualToString:@"classic"])
+                quote = [NSString stringWithFormat:@"From Classic Movie\n\n%@", quote];
+            
+            else
+                quote = [NSString stringWithFormat:@"From Modern Source\n\n%@", quote];
+            
+            //check to see if it's a simpsons quote
+            if ([source containsString:@"Simpsons"])
+                quote = [NSString stringWithFormat:@"Best show ever:\n\n%@", quote];
+            
+            
+            self.quoteText.text = quote;
         }
         else{
             self.quoteText.text = @"No quotes to display.";
